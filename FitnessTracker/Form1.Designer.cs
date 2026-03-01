@@ -38,6 +38,9 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
+            this.dataViewGridMain = new System.Windows.Forms.DataGridView();
+            this.SubmitBtn = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dataViewGridMain)).BeginInit();
             this.SuspendLayout();
             // 
             // ImportBtn
@@ -46,7 +49,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ImportBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ImportBtn.Location = new System.Drawing.Point(12, 360);
+            this.ImportBtn.Location = new System.Drawing.Point(12, 317);
             this.ImportBtn.Name = "ImportBtn";
             this.ImportBtn.Size = new System.Drawing.Size(100, 29);
             this.ImportBtn.TabIndex = 0;
@@ -92,7 +95,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ExportBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ExportBtn.Location = new System.Drawing.Point(12, 282);
+            this.ExportBtn.Location = new System.Drawing.Point(12, 255);
             this.ExportBtn.Name = "ExportBtn";
             this.ExportBtn.Size = new System.Drawing.Size(100, 29);
             this.ExportBtn.TabIndex = 6;
@@ -138,11 +141,36 @@
             this.textBox4.TabIndex = 11;
             this.textBox4.Text = "Location";
             // 
+            // dataViewGridMain
+            // 
+            this.dataViewGridMain.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataViewGridMain.Location = new System.Drawing.Point(141, 13);
+            this.dataViewGridMain.Name = "dataViewGridMain";
+            this.dataViewGridMain.Size = new System.Drawing.Size(647, 425);
+            this.dataViewGridMain.TabIndex = 12;
+            this.dataViewGridMain.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataViewGridMain_CellContentClick);
+            // 
+            // SubmitBtn
+            // 
+            this.SubmitBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.SubmitBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SubmitBtn.Location = new System.Drawing.Point(12, 378);
+            this.SubmitBtn.Name = "SubmitBtn";
+            this.SubmitBtn.Size = new System.Drawing.Size(100, 29);
+            this.SubmitBtn.TabIndex = 13;
+            this.SubmitBtn.Text = "Submit";
+            this.SubmitBtn.UseVisualStyleBackColor = true;
+            this.SubmitBtn.Click += new System.EventHandler(this.SubmitBtn_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.SubmitBtn);
+            this.Controls.Add(this.dataViewGridMain);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
@@ -156,6 +184,7 @@
             this.Name = "Form1";
             this.Text = " ";
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataViewGridMain)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -172,6 +201,8 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.DataGridView dataViewGridMain;
+        private System.Windows.Forms.Button SubmitBtn;
     }
 }
 

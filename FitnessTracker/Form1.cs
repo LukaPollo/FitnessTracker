@@ -18,30 +18,66 @@ namespace FitnessTracker
             Batteries_V2.Init();
         }
 
-        private void Form1_Load(object sender, EventArgs e) { }
+        private void Form1_Load(object sender, EventArgs e) 
+        {
+            dvgLoader();
+        }
+
+
+
+        private void SubmitBtn_Click(object sender, EventArgs e)
+        {
+            string sport = textBoxSport.Text;
+            string date = textBoxDate.Text;
+            string timeStr = textBoxTime.Text;
+            string location = textBoxLocation.Text;
+
+            if(!int.TryParse(timeStr, out int period))
+            {
+                MessageBox.Show("Hibas idotartam van adva");
+                return;
+            }
+
+            using(var conn = new SqliteConnection("Data Source=" + adatbazisFajl))
+            {
+                conn.Open();
+                var cmd = new SqliteCommand("INSERT INTO fitnessData (SportBranch, Date, Period, Location) VALUES (@sport, @date, @period, @location)", conn);
+                cmd.Parameters.AddWithValue("@sport", sport);
+                cmd.Parameters.AddWithValue("@date", date);
+                cmd.Parameters.AddWithValue("@period", period);
+                cmd.Parameters.AddWithValue("@location", location);
+
+                cmd.ExecuteNonQuery();
+            }
+            MessageBox.Show("sikeres felvitel");
+            dvgLoader();
+        }
 
         private void ExportBtn_Click(object sender, EventArgs e)
         {
             List<string> sorok = new List<string>();
             sorok.Add("SportBranch,Date,Period,Location");
 
-            string sport = textBoxSport.Text.Trim();
-            string date = textBoxDate.Text.Trim();
-            string timeStr = textBoxTime.Text.Trim();
-            string location = textBoxLocation.Text.Trim();
-
-            if (!int.TryParse(timeStr, out int period))
+            using (var conn = new SqliteConnection("Data Source=" + adatbazisFajl))
             {
-                MessageBox.Show("Hibás időtartam!");
-                return;
+                conn.Open();
+                var cmd = new SqliteCommand("SELECT SportBranch, Date, Period, Location FROM fitnessData", conn);
+                var reader = cmd.ExecuteReader();
+                while(reader.Read())
+                {
+                    string sport = reader.GetString(0);
+                    string date = reader.GetString(1);
+                    int period = reader.GetInt32(2);
+                    string location = reader.GetString(3);
+
+                    sorok.Add($"{sport},{date},{period},{location}");
+                }
             }
-
-            sorok.Add(sport + "," + date + "," + period + "," + location);
-
-            File.WriteAllLines(csvFajl, sorok);
-
+            File.WriteAllLines(csvFajl, sorok); 
             MessageBox.Show("csv sikeres");
         }
+
+
 
         private void ImportBtn_Click(object sender, EventArgs e)
         {
@@ -81,9 +117,25 @@ namespace FitnessTracker
             MessageBox.Show("adatbazis sikeres");
         }
 
+        private void dvgLoader()
+        {
+            using (var conn = new SqliteConnection("Data Source=" + adatbazisFajl))
+            {
+                conn.Open();
+                var cmd = new SqliteCommand("SELECT SportBranch, Date, Period, Location FROM fitnessData", conn);
+                var reader = cmd.ExecuteReader();
+                var table = new System.Data.DataTable();
+                table.Load(reader);
+
+                dataViewGridMain.DataSource = table;
+            }
+        }
+
+        private void dataViewGridMain_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
         private void textBoxSport_TextChanged(object sender, EventArgs e) { }
         private void textBoxDate_TextChanged(object sender, EventArgs e) { }
         private void textBoxTime_TextChanged(object sender, EventArgs e) { }
         private void textBoxLocation_TextChanged(object sender, EventArgs e) { }
+
     }
 }

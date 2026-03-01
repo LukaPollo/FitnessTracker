@@ -5,6 +5,8 @@ VisualStudioVersion = 17.13.35913.81
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FitnessTracker", "FitnessTracker\FitnessTracker.csproj", "{293691BE-6598-47CB-8B57-76EA0492C99C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FitnessTracker.Tests", "FitnessTracker.Tests\FitnessTracker.Tests.csproj", "{C58E6952-205C-47E4-8A47-3ADEAB7DEE5D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,14 @@ Global
 		{293691BE-6598-47CB-8B57-76EA0492C99C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{293691BE-6598-47CB-8B57-76EA0492C99C}.Release|x64.ActiveCfg = Release|x64
 		{293691BE-6598-47CB-8B57-76EA0492C99C}.Release|x64.Build.0 = Release|x64
+		{C58E6952-205C-47E4-8A47-3ADEAB7DEE5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C58E6952-205C-47E4-8A47-3ADEAB7DEE5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C58E6952-205C-47E4-8A47-3ADEAB7DEE5D}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{C58E6952-205C-47E4-8A47-3ADEAB7DEE5D}.Debug|x64.Build.0 = Debug|Any CPU
+		{C58E6952-205C-47E4-8A47-3ADEAB7DEE5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C58E6952-205C-47E4-8A47-3ADEAB7DEE5D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C58E6952-205C-47E4-8A47-3ADEAB7DEE5D}.Release|x64.ActiveCfg = Release|Any CPU
+		{C58E6952-205C-47E4-8A47-3ADEAB7DEE5D}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
