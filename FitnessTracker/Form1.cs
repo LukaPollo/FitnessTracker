@@ -9,9 +9,9 @@ namespace FitnessTracker
 {
     public partial class Form1 : Form
     {
-        private string adatbazisFajl = "C:\\Users\\explo\\Documents\\FitnessTracker\\FitnessTracker\\fitnessData.db";
-        private string csvFajl = "C:\\Users\\explo\\Documents\\FitnessTracker\\FitnessTracker\\fitnessData.csv";
-
+        private string adatbazisFajl = "C:\\Users\\explo\\Documents\\FitnessTracker\\FitnessTracker\\fitnessData.db"; //Atirni sájat útra !
+        private string csvFajl = "C:\\Users\\explo\\Documents\\FitnessTracker\\FitnessTracker\\fitnessData.csv";      //Atirni sájat útra !
+        
         public Form1()
         {
             InitializeComponent();
