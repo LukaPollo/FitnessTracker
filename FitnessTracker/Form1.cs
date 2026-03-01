@@ -113,8 +113,8 @@ namespace FitnessTracker
                     }
                 }
             }
-           
             MessageBox.Show("adatbazis sikeres");
+            dvgLoader();
         }
 
         private void dvgLoader()
